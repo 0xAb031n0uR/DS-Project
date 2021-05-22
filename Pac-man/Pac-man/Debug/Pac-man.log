@@ -1,0 +1,12 @@
+﻿  pac.cpp
+d:\pac-man c++\pac-man\pac-man\pac.cpp(22): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+d:\pac-man c++\pac-man\pac-man\pac.cpp(23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Pac-man.vcxproj -> D:\PAC-MAN C++\Pac-man\Debug\Pac-man.exe
