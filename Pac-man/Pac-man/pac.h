@@ -9,6 +9,7 @@ public:
 	sf::Sprite sprite;
 	pac(sf::RenderWindow& window);
 	sf::Vector2f position;
+	int posx, posy;
 	void move(maze &maze);
 };
 

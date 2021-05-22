@@ -23,16 +23,17 @@ void maze::display(RenderWindow& window)
 		{
 			if (maze_arr[i][j] == 1)
 			{
-				cout << " ";
+				//cout << i << "  ***********  " << j << endl;
 			}
 			else if (maze_arr[i][j] == 2)
 			{
+				//if (i == 18)cout <<"# care ! " <<(40 * i) +70 << endl;
 				block.setPosition(j * 40 + 6, 70 + i * 40);
 				window.draw(block);
 			}
 			else if (maze_arr[i][j] == 3)
 			{
-				cout << " ";
+				
 			}
 			else if (maze_arr[i][j] == 4)
 			{
@@ -48,6 +49,5 @@ void maze::display(RenderWindow& window)
 
 
 		}
-		cout << endl;
 	}
 }
