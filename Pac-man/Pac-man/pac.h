@@ -10,6 +10,7 @@ public:
 	pac(sf::RenderWindow& window);
 	sf::Vector2f position;
 	int posx, posy;
-	void move(maze &maze);
+	int dirction = 0;
+	void move(maze& maze);
+	void action(maze& maze);
 };
-
