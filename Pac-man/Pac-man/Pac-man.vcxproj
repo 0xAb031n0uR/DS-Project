@@ -156,8 +156,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="our_button.cpp" />
     <ClCompile Include="gost.cpp" />
     <ClCompile Include="maze.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="movind_members.cpp" />
     <ClCompile Include="omap.cpp" />
     <ClCompile Include="oset.cpp" />
@@ -166,8 +168,10 @@
     <ClCompile Include="pac.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="our_button.h" />
     <ClInclude Include="gost.h" />
     <ClInclude Include="maze.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="movind_members.h" />
     <ClInclude Include="omap.h" />
     <ClInclude Include="oset.h" />
