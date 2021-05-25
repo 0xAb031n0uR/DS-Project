@@ -2,47 +2,75 @@
 #include<SFML/Graphics.hpp>
 #include<iostream>
 #include<string>
+#include<sstream>
+//#include<>
 using namespace std;
-our_button::our_button(string words, int posx,int posy,int sz, sf::RenderWindow& window)
+our_button::our_button(string words, int posx,int posy,int size,int xrect, sf::RenderWindow& window)
 {
-	/*//font.loadFromFile("arial.ttf");
-	//text.setFont(font);
+	sz = size;
 	stringstream ss;
-	Text scoretext;
-	Font font;
-	font.loadFromFile("FFF Tusj Bold.ttf");
-	scoretext.setFont(font);
-	ss << score;
-	scoretext.setString(ss.str());
-	scoretext.setFillColor(Color::Yellow);
-	scoretext.setCharacterSize(36);
-	scoretext.setPosition(160, 900);
-	window.draw(scoretext);
-
-	current = 1;
-	rect.setSize(sf::Vector2f(posx, posy));
+	//Font font;
+	font.loadFromFile("FFF_Tusj_Bold.ttf");
+	text.setFont(font);
+	ss << words;
+	text.setString(ss.str());
+	text.setFillColor(sf::Color(30, 85, 225));
+	text.setCharacterSize(sz);
+	text.setPosition(posx,posy);
+	text.getPosition();
+	window.draw(text);
+	rect.setSize(sf::Vector2f(xrect, sz+30));
 	rect.setPosition(posx, posy);
-	rect.setFillColor(sf::Color::Green);*/
+	text.getPosition();
+	rect.setFillColor(sf::Color(172, 175, 183));
+		
 
 }
-void our_button::checkClick(int x, int y) {
-		
+void our_button::checkClick(int x, int y, sf::RenderWindow& window) {
+	sf::Event e;
+
 	if (x >rect.getPosition().x   &&  x < rect.getPosition().x + rect.getSize().x) {
 		if (y > rect.getPosition().y   &&  y< rect.getPosition().y+ rect.getSize().y) {
-			setState(!current);
+			rect.setFillColor(sf::Color(43, 60, 106));
+			text.setFillColor(sf::Color::White);
+			text.setCharacterSize(sz+5);
+			window.draw(rect);
+			window.draw(text);
+			while (window.pollEvent(e))
+			{
+				switch (e.type)
+				{
+				case sf::Event::Closed:
+					window.close();
+				case sf::Event::MouseMoved:
+
+				default:
+					break;
+				}
+			}
+			if (e.type == sf::Event::MouseButtonPressed) {
+
+				if (e.mouseButton.button == sf::Mouse::Left)
+				{
+					clicked = 1;
+
+				}
+			}
+
 		}
+
+
+	}
+	window.draw(text);
+
+}
+
+void our_button::change_page(bool &ok)
+{
+	if (clicked) {
+		clicked = 0;
+		ok = 1;
 	}
 }
-void our_button::setState(bool which) {
-	current = which;
-	cout << "gonna kill me self" << endl;
-	if ( current) {
-		window.draw(rect);
-		window.draw(text);
-	}
-	else
-	{
-		window.draw(text);
-	}
-}
+
 

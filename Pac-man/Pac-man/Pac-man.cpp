@@ -52,7 +52,7 @@ void inti() {
 }
 int main()
 {
-	bool menu = 0, game = 1;
+	bool menu = 1, game = 0,ABOUT(0),LEVEL(0),SETTINGS(0),RANK(0);
 	int frame = 0;
 	int frame2 = 0;
 	int frame3 = 0;
@@ -77,11 +77,53 @@ int main()
 			}
 		}
 		if (menu) {
-			our_button B("Play",30,30,20,window);
+			our_button play("Play", 30 * 15, 30 * 10, 75, 215, window),
+				levels("Levels", 30 * 15, 30 * 15,75,250,window),
+				settings("Settings", 30 * 15, 30 * 20, 75, 250, window),
+				rank("Rank", 30 * 15, 30 * 25, 75, 250, window),
+				exit("Exit", 30 * 29, 30 * 30, 75, 250, window),
+				about("About", 30, 30 * 30, 75, 250, window)
+				;
+			
 			window.clear();
-			if(Event::MouseMoved)
-			B.checkClick(event.mouseMove.x, event.mouseMove.y);
-			window.display();
+			if (Event::MouseMoved) {
+				
+				play.checkClick(event.mouseMove.x, event.mouseMove.y, window);
+				levels.checkClick(event.mouseMove.x, event.mouseMove.y, window);
+				rank.checkClick(event.mouseMove.x, event.mouseMove.y, window);
+				exit.checkClick(event.mouseMove.x, event.mouseMove.y, window);
+				about.checkClick(event.mouseMove.x, event.mouseMove.y, window);
+				settings.checkClick(event.mouseMove.x, event.mouseMove.y, window);
+				
+
+				if (play.clicked) {
+					menu = 0; game = 0; ABOUT = 0; LEVEL = 0; SETTINGS = 0; RANK = 0;
+					play.change_page(game);
+
+				}
+				if (levels.clicked) {
+					menu = 0; game = 0; ABOUT = 0; LEVEL = 0; SETTINGS = 0; RANK = 0;
+					levels.change_page(LEVEL);
+				}
+				if (rank.clicked) {
+					menu = 0; game = 0; ABOUT = 0; LEVEL = 0; SETTINGS = 0; RANK = 0;
+					rank.change_page(RANK);
+				}
+				if (settings.clicked) {
+					menu = 0; game = 0; ABOUT = 0; LEVEL = 0; SETTINGS = 0; RANK = 0;
+					settings.change_page(SETTINGS);
+				}
+				
+				if (about.clicked) {
+					menu = 0; game = 0; ABOUT = 0; LEVEL = 0; SETTINGS = 0; RANK = 0;
+					about.change_page(ABOUT);
+				}
+				if (exit.clicked) {
+					window.close();
+				}
+			}
+			
+				window.display();
 		}
 		
 		if (game) {
